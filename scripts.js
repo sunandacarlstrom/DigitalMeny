@@ -171,9 +171,6 @@ function createNewMenu() {
 }
 
 /* Filter function */
-function myFunction() {
-  document.getElementById("filterMenu").classList.toggle("show");
-}
 
 function filterMenu() {
   document.getElementById("filterMenu").classList.toggle("show");
