@@ -28,20 +28,43 @@
         <div class="mainCourses">
             <div class="meny">
                 <h2 class="meny-rubrik">Meny</h2>
-                        <span>
-                            <h3 class="meny-course">Varmrätter | Main courses
-                                <button onclick="filterMenu()" class="filterbtn" id="filterbtn">Sortera Menyn</button>
-                            </h3>
-                            <span id="filterMenu" class="filter-content" class="filter">
-                                <p id="showAll" onclick="createShowAll()">Alla</p>
-                                <p id ="fisk" onclick="createButtonFisk()">Fisk</p>
-                                <p id="kott" onclick="createButtonKott()">kott</p>
-                                <p id="vego" onclick="createButtonVego()">Vego</p>
-                                <p id="laktos" onclick="createButtonLaktos()">Laktos</p>
-                                <p id="gluten" onclick="createButtonGluten()">Gluten</p>
-                                <p id="pris" onclick="createButtonPris()">Fallade pris</p>
-                            </span>
-                        </span>
+
+                <h4>Typ av maträtt:</h4>
+                <input type="checkbox" id="Samtliga" name="Samtliga" value="Samtliga" checked="checked" />
+                <label for="Kött">Samtliga</label>
+                <input type="checkbox" id="Kött" name="Kött" value="Kött" />
+                <label for="Kött">Kött</label>
+                <input type="checkbox" id="Fisk" name="Fisk" value="Fisk" />
+                <label for="Fisk">Fisk</label>
+                <input type="checkbox" id="Fågel" name="Fågel" value="Fågel" />
+                <label for="Fågel">Fågel</label>
+                <input type="checkbox" id="Vegetariskt" name="Vegetariskt" value="Vegetariskt" />
+                <label for="Vegetariskt">Vegetariskt</label><br />
+                <h4>Allergier:</h4>
+                <input type="checkbox" id="Laktos" name="Laktos" value="Laktos" />
+                <label for="Laktos"> Laktos</label>
+                <input type="checkbox" id="Gluten" name="Gluten" value="Laktos" />
+                <label for="Gluten"> Gluten</label><br />
+                <h4>Sortera efter pris:</h4>
+                <input type="radio" name="radio" checked="checked" />
+                <label>Billigast först</label>
+                <input type="radio" name="radio" checked="checked" />
+                <label>Dyrast först</label>
+
+                <span>
+                    <h3 class="meny-course">Varmrätter | Main courses
+                        <button onclick="filterMenu()" class="filterbtn" id="filterbtn">Sortera Menyn</button>
+                    </h3>
+                    <span id="filterMenu" class="filter-content" class="filter">
+                        <p id="showAll" onclick="createShowAll()">Alla</p>
+                        <p id="fisk" onclick="createButtonFisk()">Fisk</p>
+                        <p id="kott" onclick="createButtonKott()">Kött</p>
+                        <p id="vego" onclick="createButtonVego()">Vego</p>
+                        <p id="laktos" onclick="createButtonLaktos()">Laktos</p>
+                        <p id="gluten" onclick="createButtonGluten()">Gluten</p>
+                        <p id="pris" onclick="createButtonPris()">Efter pris</p>
+                    </span>
+                </span>
             </div>
         </div>
 
