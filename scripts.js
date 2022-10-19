@@ -5,6 +5,7 @@ let menyGrupp;
 let filter = "";
 let allergiFilter = "";
 let sorteringStigande = false;
+let visaMaträtter;
 
 const xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function getData() {
@@ -20,77 +21,56 @@ xhttp.send();
 
 /* Create Button Functions */
 function createButtonKott() {
-    const btnKött = document.getElementById("kott");
-    btnKött.addEventListener("click", function () {
-        menyGrupp.remove();
-        filter = "kött";
-        createNewMenu();
-    });
+     menyGrupp.remove();
+     filter = "kött";
+     createNewMenu();
 }
 
 function createButtonFisk() {
-    const btnFisk = document.getElementById("fisk");
-    btnFisk.addEventListener("click", function () {
-        menyGrupp.remove();
-        filter = "fisk";
-        createNewMenu();
-    });
+     menyGrupp.remove();
+     filter = "fisk";
+     createNewMenu();
+    
 }
-
+function createCheckBoxKyckling() {
+    menyGrupp.remove();
+    filter = "kyckling";
+    createNewMenu();
+}
 function createButtonVego() {
-    const btnVego = document.getElementById("vego");
-    btnVego.addEventListener("click", function () {
         menyGrupp.remove();
         filter = "vegetariskt";
         createNewMenu();
-    });
+    
 }
 
 function createButtonLaktos() {
-    const btnLaktos = document.getElementById("laktos");
-    btnLaktos.addEventListener("click", function () {
         menyGrupp.remove();
         allergiFilter = "laktos";
         createNewMenu();
-    });
+  
 }
 
 function createButtonGluten() {
-    const btnGluten = document.getElementById("gluten");
-    btnGluten.addEventListener("click", function () {
         menyGrupp.remove();
         allergiFilter = "gluten";
         createNewMenu();
-    });
+    
 }
-function createButtonPris() {
-    createShowAll();
-    const btnPris = document.getElementById("pris");
-    btnPris.addEventListener("click", function () {
-        menyGrupp.remove();
 
-        sorteringStigande = true;
-
-        createNewMenu();
-    });
-}
 
 function createShowAll() {
-    const btnDelete = document.getElementById("showAll");
-    btnDelete.addEventListener("click", function () {
         menyGrupp.remove();
         filter = "";
         allergiFilter = "";
         createNewMenu();
-    });
+    
 }
 
 function createNewMenu() {
     menyGrupp = document.createElement("div");
     menyGrupp.classList.add("meny-grupp");
     document.getElementById("container").append(menyGrupp);
-
-    let visaMaträtter;
 
     if (filter === "") {
         visaMaträtter = menu;
@@ -115,13 +95,16 @@ function createNewMenu() {
             }
         });
     }
-
+    
     if (!sorteringStigande) {
-        visaMaträtter.sort((a, b) => (a.pris < b.pris ? 1 : -1));
+        visaMaträtter.sort((a, b) => { return b.pris - a.pris });
+        menyGrupp.classList.remove("meny-grupp");
     } else {
-        visaMaträtter.sort((a, b) => (a.pris > b.pris ? 1 : -1));
+        visaMaträtter.sort((a, b) => {
+          return a.pris - b.pris;
+        });
     }
-
+    
     visaMaträtter.forEach((menyData) => {
         const artiklar = document.createElement("div");
         artiklar.classList.add("artiklar");
@@ -187,3 +170,62 @@ window.onclick = function (event) {
         }
     }
 };
+
+
+let samtliga = document.getElementById("samtliga");
+let kött = document.getElementById("kött");
+let fisk = document.getElementById("fisk");
+let fågel = document.getElementById("fågel");
+let vegetariskt = document.getElementById("vegetariskt");
+let laktos = document.getElementById("laktos");
+let gluten = document.getElementById("gluten");
+
+// Function for checkbox
+function checkBoxChecked() {
+   
+            if (kött.checked == true && kött.value == "kött") {
+                 createButtonKott();
+            }
+            else if (fisk.checked == true && fisk.value == "fisk") {
+                createButtonFisk();
+            }
+            else if (fågel.checked == true && fågel.value == "fågel") {
+              createCheckBoxKyckling();
+            } else if (
+              vegetariskt.checked == true &&
+              vegetariskt.value == "vegetariskt"
+            ) {
+              createButtonVego();
+             }
+            else if (laktos.checked == true && laktos.value == "laktos") {
+              createButtonLaktos();
+            }
+            else if (gluten.checked == true && gluten.value == "gluten") {
+              createButtonGluten();
+            } else {
+              createShowAll();
+            }
+        
+      
+    
+}
+
+let biligastPris = document.getElementById("biligastPris");
+let dyrastPris = document.getElementById("dyrastPris");
+
+
+function sorteraPris() {
+    if (!sorteringStigande) {
+        sorteringStigande = true;
+        menyGrupp.remove();
+        
+        createNewMenu();
+         
+    } else {
+        sorteringStigande = false;
+        menyGrupp.remove();
+            createNewMenu();
+    }
+
+}
+  

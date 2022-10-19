@@ -215,7 +215,7 @@
                 "redwine reduction",
                 "fried potatoes"
             ],
-            "typ": "kött",
+            "typ": "kyckling",
             "sort": "meat",
             "allergi": ["laktos", "gluten"],
             "allergy": ["lactose", "gluten"],
@@ -248,7 +248,7 @@
                 "redwine reduction",
                 "fried potatoes"
             ],
-            "typ": "kött",
+            "typ": "kyckling",
             "sort": "meat",
             "allergi": ["laktos", "gluten"],
             "allergy": ["lactose", "gluten"],
@@ -308,7 +308,7 @@
                 "vegetables",
                 "parmesan"
             ],
-            "typ": "kött",
+            "typ": "kyckling",
             "sort": "meat",
             "allergi": ["gluten"],
             "allergy": ["gluten"],
